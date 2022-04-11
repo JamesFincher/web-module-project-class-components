@@ -5,9 +5,10 @@ export default class Todo extends React.Component {
     super();
   }
   render() {
-    const { name, id, completed } = this.props;
+    const { name, id, crossOff } = this.props;
     return (
-      <div id={id}>
+      //return item
+      <div id={id} onClick={() => crossOff(id)}>
         <p>{name}</p>
       </div>
     );

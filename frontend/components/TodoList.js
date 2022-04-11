@@ -6,8 +6,9 @@ export default class TodoList extends React.Component {
     super();
   }
   render() {
-    const { items } = this.props;
+    const { items, crossOff } = this.props;
     return (
+      //map over items in the list, sending the data to Todo tp parse
       <>
         <div>TodoList</div>{" "}
         {items.map((item) => {
@@ -17,6 +18,7 @@ export default class TodoList extends React.Component {
               key={item.id}
               id={item.id}
               completed={item.completed}
+              crossOff={crossOff}
             />
           );
         })}
