@@ -67,8 +67,12 @@ export default class App extends React.Component {
     console.log(id);
   };
 
-  toggle = (id) => {
-    console.log(id);
+  filter = (e) => {
+    this.setState({
+      items: this.state.items.filter((item) => {
+        return !item.completed;
+      }),
+    });
   };
   render() {
     return (
@@ -84,6 +88,7 @@ export default class App extends React.Component {
           formChange={this.formChange}
           onSubmit={this.onSubmit}
         />
+        <button onClick={this.filter}>Filter</button>
       </>
     );
   }
