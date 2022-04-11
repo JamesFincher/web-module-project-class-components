@@ -20,16 +20,36 @@ export default class App extends React.Component {
       items: itemz,
       formValue: "",
     };
-    console.log("State from App", this.state.items);
+    // console.log("State from App", this.state.items);
   }
   formChange = (e) => {
     this.setState({ formValue: e.target.value });
+  };
+  addItem = (e, item) => {
+    const newItem = {
+      name: item,
+      id: Date.now(),
+      completed: false,
+    };
+    this.setState({
+      items: [...this.state.items, newItem],
+    });
+  };
+  onSubmit = (e) => {
+    e.preventDefault();
+    // console.log(e);
+    this.addItem(e, this.state.formValue);
+    console.log("New item posted... Reseting formValue state to empty");
   };
   render() {
     return (
       <>
         return <TodoList items={this.state.items} />
-        <Form formValue={this.state.formValue} formChange={this.formChange} />
+        <Form
+          formValue={this.state.formValue}
+          formChange={this.formChange}
+          onSubmit={this.onSubmit}
+        />
       </>
     );
   }

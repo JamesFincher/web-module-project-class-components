@@ -5,16 +5,17 @@ export default class Form extends React.Component {
     super();
   }
   render() {
-    const { itemText, formChange } = this.props;
+    const { itemText, formChange, onSubmit } = this.props;
     return (
       <div>
-        <form>
+        <form onSubmit={onSubmit}>
           <input
             type="text"
             name="item"
             value={itemText}
             onChange={formChange}
           ></input>
+          <button>Submit</button>
         </form>
       </div>
     );
