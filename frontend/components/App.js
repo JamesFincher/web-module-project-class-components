@@ -1,5 +1,6 @@
 import React from "react";
 import TodoList from "./TodoList";
+import Form from "./Form";
 const itemz = [
   {
     name: "Organize Garage",
@@ -21,7 +22,15 @@ export default class App extends React.Component {
     };
     console.log("State from App", this.state.items);
   }
+  formChange = (e) => {
+    this.setState({ formValue: e.target.value });
+  };
   render() {
-    return <TodoList items={this.state.items} />;
+    return (
+      <>
+        return <TodoList items={this.state.items} />
+        <Form formValue={this.state.formValue} formChange={this.formChange} />
+      </>
+    );
   }
 }
