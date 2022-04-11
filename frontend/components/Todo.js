@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 export default class Todo extends React.Component {
+  constructor(props) {
+    super();
+  }
   render() {
-    return (
-      <div>
-        Todo
-      </div>
-    )
+    const { name, key, completed } = this.props;
+    return <div key={key}>{name}</div>;
   }
 }
