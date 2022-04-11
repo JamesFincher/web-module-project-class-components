@@ -1,11 +1,15 @@
 import React from "react";
 
 export default class Todo extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
   }
   render() {
-    const { name, key, completed } = this.props;
-    return <div key={key}>{name}</div>;
+    const { name, id, completed } = this.props;
+    return (
+      <div id={id}>
+        <p>{name}</p>
+      </div>
+    );
   }
 }
